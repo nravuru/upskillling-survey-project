@@ -3,5 +3,5 @@
 # - Naresh through GUI
 # corban test commit
 # Naresh commit through CLI
-# supriya 1st commity
+# supriya 1st commit
 
