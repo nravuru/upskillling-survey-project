@@ -37,8 +37,8 @@ public class SurveyDefinitionController extends AbstractController<SurveyDefinit
         SurveyDefinition newSd = new SurveyDefinition();
 
         newSd.setName(name.toUpperCase());
-        newSd.setStartDate(startDate.toInstant().atZone(ZoneId.systemDefault()));
-        newSd.setStartDate(endDate.toInstant().atZone(ZoneId.systemDefault()));
+        newSd.setStartDate(startDate);
+        newSd.setEndDate(endDate);
         newSd.setThresholdCount(thresholdCount);
 
         return save(newSd);

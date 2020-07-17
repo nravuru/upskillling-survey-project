@@ -1,6 +1,7 @@
 package com.survey.SurveyApi.entity;
 
 import java.time.ZonedDateTime;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,6 +12,8 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
@@ -25,13 +28,13 @@ public class SurveyDefinition extends AbstractEntity {
     private String name;
 
     @CreationTimestamp
-    @JsonFormat(pattern = "dd/MM/yyyy hh:mm:ss a Z")
+    @JsonFormat(pattern = "dd/MM/yyyy")
     @Column(name = "START_DT", insertable = true, updatable = false)
-    private ZonedDateTime startDate;
+    private Date startDate;
 
-    @JsonFormat(pattern = "dd/MM/yyyy hh:mm:ss a Z")
+    @JsonFormat(pattern = "dd/MM/yyyy")
     @Column(name = "END_DT", insertable = true, updatable = true)
-    private ZonedDateTime endDate;
+    private Date endDate;
 
     @Column(name = "THRESHOLD_COUNT")
     private Long thresholdCount;
@@ -57,19 +60,19 @@ public class SurveyDefinition extends AbstractEntity {
         this.name = name;
     }
 
-    public ZonedDateTime getStartDate() {
+    public Date getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(ZonedDateTime startDate) {
+    public void setStartDate(Date startDate) {
         this.startDate = startDate;
     }
 
-    public ZonedDateTime getEndDate() {
+    public Date getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(ZonedDateTime endDate) {
+    public void setEndDate(Date endDate) {
         this.endDate = endDate;
     }
 
@@ -88,5 +91,12 @@ public class SurveyDefinition extends AbstractEntity {
     public void setCompletedCount(Long completedCount) {
         this.completedCount = completedCount;
     }
+
+    @Override
+  public String toString() {
+    ReflectionToStringBuilder rsb = new ReflectionToStringBuilder(this, ToStringStyle.MULTI_LINE_STYLE);
+    
+    return rsb.toString();
+  }
 
 }
