@@ -1,10 +1,10 @@
-package com.survey.SurveyApi.controller;
-
-import com.survey.SurveyApi.entity.SurveyDefinition;
+package com.survey.controller;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+
+import com.survey.entity.SurveyDefinition;
 
 public class SurveyDefinitionControllerTest extends AbstractControllerTest<SurveyDefinition> {
 

@@ -15,16 +15,16 @@ import javax.persistence.Table;
  *
  */
 @Entity
-@Table(name="question")
+@Table(name="questions")
 public class Question {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long questionId;
 	private String questionText;
-	private Long questionType;
+	private String questionType;
 	
-	public Question(String questionText, Long questionType) {
+	public Question(String questionText, String questionType) {
 		super();
 		this.questionText = questionText;
 		this.questionType = questionType;
@@ -57,13 +57,13 @@ public class Question {
 	/**
 	 * @return the questionType
 	 */
-	public Long getQuestionType() {
+	public String getQuestionType() {
 		return questionType;
 	}
 	/**
 	 * @param questionType the questionType to set
 	 */
-	public void setQuestionType(Long questionType) {
+	public void setQuestionType(String questionType) {
 		this.questionType = questionType;
 	}
 	

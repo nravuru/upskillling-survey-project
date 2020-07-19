@@ -1,14 +1,14 @@
-package com.survey.SurveyApi.controller;
+package com.survey.controller;
 
 import java.util.List;
 import java.util.Optional;
-
-import com.survey.SurveyApi.entity.AbstractEntity;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+
+import com.survey.entity.AbstractEntity;
 
 public abstract class AbstractController<E extends AbstractEntity> {
 

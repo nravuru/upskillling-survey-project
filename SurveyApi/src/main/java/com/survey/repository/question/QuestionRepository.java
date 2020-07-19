@@ -3,7 +3,7 @@
  */
 package com.survey.repository.question;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.survey.entity.Question;
@@ -15,6 +15,6 @@ import com.survey.entity.Question;
  */
 
 @Repository
-public interface QuestionRepository extends CrudRepository<Question, Long> {
+public interface QuestionRepository extends JpaRepository<Question, Long> {
 
 }

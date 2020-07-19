@@ -1,4 +1,4 @@
-package com.survey.SurveyApi.entity;
+package com.survey.entity;
 
 public abstract class AbstractEntity {
     

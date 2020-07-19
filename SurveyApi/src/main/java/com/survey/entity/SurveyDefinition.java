@@ -1,4 +1,4 @@
-package com.survey.SurveyApi.entity;
+package com.survey.entity;
 
 import java.time.ZonedDateTime;
 import java.util.Date;

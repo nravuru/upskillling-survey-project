@@ -1,21 +1,21 @@
-package com.survey.SurveyApi.controller;
+package com.survey.controller;
 
-import java.time.ZoneId;
 import java.util.Date;
 
 import javax.validation.constraints.NotBlank;
 
-import com.survey.SurveyApi.entity.SurveyDefinition;
-import com.survey.SurveyApi.repository.SurveyDefinitionRepository;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.survey.entity.SurveyDefinition;
+import com.survey.repository.defintion.SurveyDefinitionRepository;
 
 @RestController
 @RequestMapping("/surveyDefinitions")
@@ -29,6 +29,11 @@ public class SurveyDefinitionController extends AbstractController<SurveyDefinit
         return sdRepository;
     }
 
+    @GetMapping("/hello")
+    public String sayHello() {
+    	return "Hello world!";
+    }
+    
     @PutMapping("/")
     public SurveyDefinition addSurveyDefinition(@RequestParam(required = true, name = "name") @NotBlank String name,
             @RequestParam(name = "startDate", required = false) @DateTimeFormat(pattern = "yyyy/MM/dd") Date startDate,
