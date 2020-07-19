@@ -55,6 +55,18 @@ public class QuestionServiceTest {
 	  Question question = questionSvc.addQuestion(new Question(QUESTION_TEXT1, "radio"));
 	  
 	  question.setQuestionText(QUESTION_TEXT2);
-	  question = questionSvc.updateQuestion(question);		 
+	  question = questionSvc.updateQuestion(question);		
+	  
+	  assertEquals(question.getQuestionText(), QUESTION_TEXT2);
+	}
+	
+	@Test
+	void deleteQuestion() {
+	  QuestionService questionSvc = new QuestionServiceImpl(questionRepo);
+	  Question question = questionSvc.addQuestion(new Question(QUESTION_TEXT1, "radio"));
+	  
+	  questionSvc.deleteQuestion(question);	
+	  List<Question> questions = questionSvc.getAllQuestions();
+	  assertEquals(questions.size(), 0);
 	}
 }

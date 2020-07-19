@@ -29,18 +29,17 @@ public class QuestionServiceImpl implements QuestionService {
 	public QuestionServiceImpl(QuestionRepository questionRepository) {
 		this.questionRepository = questionRepository;
 	}
-	
-	
+		
 	public Question addQuestion(Question question) {
 		return questionRepository.save(question);
 	}
 
 	public Question updateQuestion(Question question) {
-		return null;
+		return questionRepository.save(question);
 	}
 
-	public Long deleteQuestion(Question question) {
-		return null;
+	public void deleteQuestion(Question question) {
+		questionRepository.delete(question);
 	}
 	
 	public List<Question> getAllQuestions() {

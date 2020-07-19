@@ -19,7 +19,7 @@ public interface QuestionService {
 
 	public Question updateQuestion(Question question);
 
-	public Long deleteQuestion(Question question);
+	public void deleteQuestion(Question question);
 	
 	public List<Question> getAllQuestions();
 	
