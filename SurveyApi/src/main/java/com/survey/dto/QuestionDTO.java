@@ -10,27 +10,31 @@ package com.survey.dto;
  */
 public class QuestionDTO {
 	
-	private Long questionId;
+	private Long id;
 	private String questionText;
-	private Long questionType;
+	private String questionType;
 	
-	public QuestionDTO(String questionText, Long questionType) {
+	public QuestionDTO() {
+		
+	}
+	
+	public QuestionDTO(String questionText, String questionType) {
 		super();
 		this.questionText = questionText;
 		this.questionType = questionType;
 	}
 	
 	/**
-	 * @return the questionId
+	 * @return the id
 	 */
-	public Long getQuestionId() {
-		return questionId;
+	public Long getId() {
+		return id;
 	}
 	/**
-	 * @param questionId the questionId to set
+	 * @param id the id to set
 	 */
-	public void setQuestionId(Long questionId) {
-		this.questionId = questionId;
+	public void setId(Long id) {
+		this.id = id;
 	}
 	/**
 	 * @return the questionText
@@ -47,13 +51,13 @@ public class QuestionDTO {
 	/**
 	 * @return the questionType
 	 */
-	public Long getQuestionType() {
+	public String getQuestionType() {
 		return questionType;
 	}
 	/**
 	 * @param questionType the questionType to set
 	 */
-	public void setQuestionType(Long questionType) {
+	public void setQuestionType(String questionType) {
 		this.questionType = questionType;
 	}
 	
@@ -63,7 +67,7 @@ public class QuestionDTO {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("QuestionDTO [questionId=").append(questionId).append(", questionText=").append(questionText)
+		builder.append("QuestionDTO [id=").append(id).append(", questionText=").append(questionText)
 				.append(", questionType=").append(questionType).append("]");
 		return builder.toString();
 	}

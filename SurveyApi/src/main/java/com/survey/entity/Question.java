@@ -3,6 +3,7 @@
  */
 package com.survey.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,32 +16,28 @@ import javax.persistence.Table;
  *
  */
 @Entity
-@Table(name="questions")
-public class Question {
+@Table(name="QUESTIONS")
+public class Question extends AbstractEntity {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long questionId;
+	@Column(name="QUESTION_ID")
+	private Long id;
+	
+	@Column(name="QUESTION_TEXT")
 	private String questionText;
+	
+	@Column(name="QUESTION_TYPE")
 	private String questionType;
+	
+	public Question() {
+			
+	}
 	
 	public Question(String questionText, String questionType) {
 		super();
 		this.questionText = questionText;
 		this.questionType = questionType;
-	}
-	
-	/**
-	 * @return the questionId
-	 */
-	public Long getQuestionId() {
-		return questionId;
-	}
-	/**
-	 * @param questionId the questionId to set
-	 */
-	public void setQuestionId(Long questionId) {
-		this.questionId = questionId;
 	}
 	/**
 	 * @return the questionText
@@ -73,9 +70,18 @@ public class Question {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Question [questionId=").append(questionId).append(", questionText=").append(questionText)
+		builder.append("Question [Id=").append(id).append(", questionText=").append(questionText)
 				.append(", questionType=").append(questionType).append("]");
 		return builder.toString();
 	}
 
+	@Override
+	public Long getId() {
+		return id;
+	}
+
+	@Override
+	public void setId(Long id) {
+		this.id = id;
+	}
 }

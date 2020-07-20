@@ -4,6 +4,7 @@
 package com.survey.service.question;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.survey.entity.Question;
 
@@ -15,13 +16,17 @@ import com.survey.entity.Question;
  */
 public interface QuestionService {	
 
+	public Optional<Question> getQuestionById(Long id);
+
 	public Question addQuestion(Question question);
+	
+	public List<Question> addQuestions(List<Question> questions);
 
 	public Question updateQuestion(Question question);
 
 	public void deleteQuestion(Question question);
 	
-	public List<Question> getAllQuestions();
+	public void deleteQuestions();
 	
-	public Question getQuestionById(Long id);
+	public List<Question> getAllQuestions();	
 }

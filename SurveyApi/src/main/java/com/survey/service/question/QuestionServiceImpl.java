@@ -4,10 +4,8 @@
 package com.survey.service.question;
 
 import java.util.List;
+import java.util.Optional;
 
-import javax.transaction.Transactional;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.survey.entity.Question;
@@ -22,16 +20,23 @@ import com.survey.repository.question.QuestionRepository;
 
 @Service
 public class QuestionServiceImpl implements QuestionService {	
-	
-	@Autowired
-	QuestionRepository questionRepository;
+
+	private QuestionRepository questionRepository;
 
 	public QuestionServiceImpl(QuestionRepository questionRepository) {
 		this.questionRepository = questionRepository;
 	}
 		
+	public Optional<Question> getQuestionById(Long id) {
+		return questionRepository.findById(id);
+	}
+	
 	public Question addQuestion(Question question) {
 		return questionRepository.save(question);
+	}
+	
+	public List<Question> addQuestions(List<Question> questions) {
+		return questionRepository.saveAll(questions);
 	}
 
 	public Question updateQuestion(Question question) {
@@ -42,11 +47,11 @@ public class QuestionServiceImpl implements QuestionService {
 		questionRepository.delete(question);
 	}
 	
-	public List<Question> getAllQuestions() {
-		return questionRepository.findAll();
+	public void deleteQuestions() {
+		questionRepository.deleteAll();
 	}
 	
-	public Question getQuestionById(Long id) {
-		return null;
-	}
+	public List<Question> getAllQuestions() {
+		return questionRepository.findAll();
+	}	
 }
